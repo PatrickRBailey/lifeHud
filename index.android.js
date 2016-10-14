@@ -12,41 +12,58 @@ import {
   View
 } from 'react-native';
 
+import Hud from './application/components/hud/hud';
+import moment from 'moment';
+
 class lifeHud extends Component {
+  constructor(props){
+    super(props);
+    this.state = new Date();
+
+    setInterval(() => {
+      this.setState(new Date());
+    }, 1000);
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <View style={{flex: 1, flexDirection: 'column'}}>
+        <View style={{
+          flex: 1,
+          backgroundColor: 'black',
+          flexDirection:'row',
+          justifyContent: 'space-between'
+        }}>
+          <Text style={styles.headline}>LIFEHUD</Text>
+          <Text style={styles.time}>
+          {moment(new Date()).format('h:mm a [\n] dddd')}
+          </Text>
+        </View>
+        <View style={{flex: 5, backgroundColor: '#bdbdbd'}}>
+          <Hud />
+        </View>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  time:{
+    fontSize: 25,
+    color:'white',
+    textAlign: 'right',
+    marginTop: 25,
+    marginRight:20,
+    fontWeight: 'bold',
+
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  headline: {
+    color: '#e0e0e0',
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    marginTop: 20,
+    marginLeft: 20
   },
 });
 
