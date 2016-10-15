@@ -28,19 +28,20 @@ class lifeHud extends Component {
     return (
       <View style={{flex: 1, flexDirection: 'column'}}>
         <View style={{
-          flex: 1,
+          flex: 2,
           backgroundColor: 'black',
           flexDirection:'row',
           justifyContent: 'space-between'
         }}>
           <Text style={styles.headline}>LIFEHUD</Text>
           <Text style={styles.time}>
-          {moment(new Date()).format('h:mm a [\n] dddd')}
+          {moment(new Date()).format('h:mm:ss a [\n] dddd')}
           </Text>
         </View>
-        <View style={{flex: 5, backgroundColor: '#bdbdbd'}}>
+        <View style={{flex: 7, backgroundColor: '#424242'}}>
           <Hud />
         </View>
+        <View style={{flex: 1, backgroundColor: 'black'}}></View>
 
       </View>
     );
