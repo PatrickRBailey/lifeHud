@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text, Navigator, TextInput } from 'react-native';
 
 export default class Hud extends Component {
-  static get defaultProps() {
-    return {
-      title: 'The Hud Will Go Here'
-    };
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
   }
+  
 
   render() {
     return (
@@ -25,8 +25,17 @@ export default class Hud extends Component {
           width: 360
 
         }}>Condition: 72%</Text></View>
-        <View style={{flex: 7}}><Text>This is Box 2</Text></View>
-        <View style={{flex: 5}}><Text>This is Box 3</Text></View>
+        <View style={{flex: 7}}><Text style={{padding: 10, fontSize:30, color:'white'}}>
+          {this.state.text}
+        </Text>
+
+        </View>
+        <View style={{flex: 2}}><TextInput
+          style={{height: 40, color:'white', fontSize:20}}
+          placeholder="Add a task"
+          placeholderTextColor="gray"
+          onChangeText={(text) => this.setState({text})}
+        /></View>
       </View>
     )
   }
