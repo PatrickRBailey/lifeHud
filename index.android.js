@@ -2,7 +2,10 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  * @flow
- here's a merge conflict
+
+blah blah blah
+
+
  */
 
 import React, { Component } from 'react';
