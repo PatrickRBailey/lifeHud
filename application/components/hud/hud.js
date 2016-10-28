@@ -6,7 +6,7 @@ export default class Hud extends Component {
     super(props);
     this.state = {text: ''};
   }
-  
+
 
   render() {
     return (
@@ -28,6 +28,7 @@ export default class Hud extends Component {
         <View style={{flex: 7}}><Text style={{padding: 10, fontSize:30, color:'white'}}>
           {this.state.text}
         </Text>
+        
 
         </View>
         <View style={{flex: 2}}><TextInput
